@@ -1,6 +1,6 @@
 # ElasticBasedCollection
 
-A tool that merges Elastic IDS logs (via ES|QL) with Procmon CSV logs into a unified behavioral log format with deterministic UUID-based entity tracking, and evaluates attack tracing via graph-based threat traversal with ML sequence judgment.
+This repository is the source code for the paper "GapTracer: Unraveling RPC Obfuscations in Provenance Graphs for Attack Source Tracing".
 
 ## Project Structure
 
@@ -27,6 +27,10 @@ A tool that merges Elastic IDS logs (via ES|QL) with Procmon CSV logs into a uni
 │   ├── ModelTrain.py                   # Training script
 │   ├── rf_ngram_model.pkl
 │   └── ngram_vectorizer.pkl
+├── ObfuscationCase/                   # Annotated figures from the paper (Fig. 1)
+│   ├── Fig.1-Part1.png
+│   ├── Fig.2-Part2.png
+│   └── Detail-Information.csv
 ├── requirements.txt
 └── LICENSE
 ```
@@ -57,6 +61,16 @@ Evaluates GapTracer's attack tracing on the pre-collected `ObRPC-onDataset`:
 7. Runs second-round graph traversal for newly discovered seeds
 8. Extracts malicious entity UUIDs (image/file/network) from the full threat graph
 9. Compares extracted UUIDs against ground truth for Precision/Recall/F1/Jaccard
+
+### ObfuscationCase
+
+Provides enlarged, annotated versions of **Fig. 1** from the paper for closer inspection of the RPC obfuscation scenario. The original figure is split into two parts, with each process node numbered for reference.
+
+| File | Description |
+|------|-------------|
+| `Fig.1-Part1.png` | Enlarged left portion of Fig. 1 with numbered process nodes |
+| `Fig.2-Part2.png` | Enlarged right portion of Fig. 1 with numbered process nodes |
+| `Detail-Information.csv` | Mapping from each number label to its PID and Process Name |
 
 ### SeqCleanModel & SeqJudgeModel
 
