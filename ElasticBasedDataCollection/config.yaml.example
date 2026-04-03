@@ -1,0 +1,31 @@
+# ============================================
+# Elasticsearch Connection
+# ============================================
+elasticsearch:
+  url: "https://your-es-host:9200"
+  username: "elastic"
+  password: "your-password-here"
+  verify_certs: false
+
+# ============================================
+# Host & Environment Settings
+# ============================================
+host:
+  hostname: "your-hostname"           # Hostname for CSV logs and ES query filter
+  principal: "NT AUTHORITY\\SYSTEM"   # Default principal for CSV-sourced logs
+  internal_ips:                       # IPs considered internal (for traffic direction)
+    - "127.0.0.1"
+    - "192.168.1.100"
+    - "0.0.0.0"
+
+# ============================================
+# Directory Paths
+# ============================================
+paths:
+  csv_dir: "ProcmonCsvLog"            # Directory containing Procmon CSV exports
+  output_dir: "FinalLog"              # Directory for merged output JSON files
+
+# ============================================
+# Timezone
+# ============================================
+timezone_offset_hours: 8              # UTC offset (e.g. 8 for UTC+8 CST)
