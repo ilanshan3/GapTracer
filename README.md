@@ -10,7 +10,7 @@ This repository is the source code for the paper "GapTracer: Unraveling RPC Obfu
 │   ├── config.yaml.example             # Configuration template (copy to config.yaml)
 │   ├── ProcmonCsvLog/                  # (gitignored) Place Procmon CSV exports here
 │   ├── FinalLog/                       # (gitignored) Merged output JSON Lines
-│   └── ObRPC-onDataset/               # Pre-collected attack scenario datasets
+│   └── ObRPC-onDataset/               # (auto-downloaded) Attack scenario datasets
 │       ├── Data-Attack1/
 │       ├── Data-Attack2/
 │       ├── Data-Attack3/
@@ -109,7 +109,7 @@ pip install -r requirements.txt
 python GapTracerEvaluation/GapTracerEvaluation.py
 ```
 
-This processes all 6 attack scenarios in `ElasticBasedDataCollection/ObRPC-onDataset/` and reports Precision/Recall/F1/Jaccard metrics. Pre-trained SeqClean + SeqJudge model weights are included under `SeqCleanModel/` and `SeqJudgeModel/`.
+On first run, the script will automatically download the `ObRPC-onDataset` (~6 attack scenario datasets) from [Google Drive](https://drive.google.com/file/d/1T7DSQBqlQ1M673U1BOnsk8R30n6nupOx) into `ElasticBasedDataCollection/ObRPC-onDataset/` and extract it. Subsequent runs reuse the local copy. The evaluation then processes all 6 attack scenarios and reports Precision/Recall/F1/Jaccard metrics. Pre-trained SeqClean + SeqJudge model weights are included under `SeqCleanModel/` and `SeqJudgeModel/`.
 
 ### Data Collection (Optional)
 
@@ -138,6 +138,12 @@ python ElasticBasedDataCollection/ElasticBasedDataCollection.py
 8. Output will be written to `ElasticBasedDataCollection/FinalLog/` as JSON Lines.
 
 ## Dataset Structure
+
+The pre-collected attack scenario datasets (`ObRPC-onDataset`) are hosted on Google Drive due to their size:
+
+**Download link:** [ObRPC-onDataset.zip](https://drive.google.com/file/d/1T7DSQBqlQ1M673U1BOnsk8R30n6nupOx)
+
+> **Note:** You do not need to download manually — `GapTracerEvaluation.py` will automatically download and extract the dataset on first run.
 
 Each attack scenario folder (`Data-Attack*/`) contains:
 
