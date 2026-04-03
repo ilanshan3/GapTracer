@@ -1,0 +1,1 @@
+{"[PAD]": 0, "[CLS]": 1, "[SEP]": 2, "[UNK]": 3, "user_process": 4, "read": 5, "SystemFile": 6, "ProgramsFile": 7, "write": 8, "UserFile": 9, "delete": 10, "CombinedFile": 11, "instant_process": 12, "system_process": 13, "create": 14, "RpcCall": 15, "ChildProcess": 16, "NetworkConnection": 17, "ip": 18}
